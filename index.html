@@ -2,13 +2,135 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Quem é o Amor da Sua Vida</title>
+  <title>Quem é o Amor da Sua Vida?</title>
+
+  <!-- Para viewport responsiva em mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Aqui temos o CSS embutido no <style> -->
+  <style>
+    /* 1) Import de fonte futurista (Orbitron) */
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+    /* 2) Reset básico para remover margens/padding padrão */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 3) Estilização geral do body: 
+       - Fundo com gradiente animado 
+       - Fonte Orbitron 
+       - Conteúdo centralizado */
+    body {
+      font-family: 'Orbitron', sans-serif;
+      color: #fff; /* texto branco */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(115deg, #0c0032, #35007d, #8a2be2);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+
+    /* 4) Animação do gradiente */
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    /* 5) Container para agrupar conteúdo */
+    .container {
+      max-width: 600px;
+      width: 90%;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* 6) Título com efeito neon */
+    h1 {
+      font-size: 2rem;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      text-shadow:
+        0 0 8px rgba(138, 43, 226, 0.7),
+        0 0 16px rgba(138, 43, 226, 0.5);
+    }
+
+    /* 7) Subtítulo menor */
+    .subtitulo {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      opacity: 0.9;
+    }
+
+    /* 8) Botão estilizado */
+    .botao {
+      font-size: 1rem;
+      text-decoration: none;
+      color: #fff;
+      border: 2px solid #fff;
+      padding: 12px 24px;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      cursor: pointer; /* mostra a "mãozinha" no hover */
+    }
+    .botao:hover {
+      background-color: #fff;
+      color: #000;
+      box-shadow: 0 0 8px #fff; /* leve glow */
+    }
+
+    /* 9) Texto que será exibido ao clicar (inicia escondido) */
+    #amorText {
+      font-size: 2rem;
+      margin-top: 30px;
+      display: none; /* começa invisível */
+      text-shadow:
+        0 0 8px rgba(138, 43, 226, 0.7),
+        0 0 16px rgba(138, 43, 226, 0.5);
+    }
+  </style>
 </head>
 <body>
-  <h1>Quem é o Amor da Sua Vida – Clique para saber</h1>
-  <p>
-    <!-- Link para a página "amor.html" -->
-    <a href="amor.html">Clique aqui</a>
-  </p>
+
+  <div class="container">
+    <!-- Título principal -->
+    <h1>Quem é o Amor da Sua Vida?</h1>
+
+    <!-- Subtítulo -->
+    <p class="subtitulo">Clique no botão para revelar!</p>
+
+    <!-- Botão que revela o nome -->
+    <button class="botao" onclick="mostrarAmor()">Clique aqui</button>
+
+    <!-- Texto que aparecerá ao clicar no botão -->
+    <h2 id="amorText">Renan</h2>
+  </div>
+
+  <!-- JavaScript embutido, para revelar/ocultar o texto -->
+  <script>
+    function mostrarAmor() {
+      const texto = document.getElementById('amorText');
+      // Se estiver escondido, mostra; se estiver visível, esconde
+      if (texto.style.display === 'none') {
+        texto.style.display = 'block';
+      } else {
+        texto.style.display = 'none';
+      }
+    }
+  </script>
+
 </body>
 </html>
